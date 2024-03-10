@@ -4,15 +4,15 @@ import 'dart:math';
 
 import 'package:flutter/widgets.dart';
 
-typedef MatrixGestureDetectorCallback = void Function(
+typedef CustomMatrixDetectorCallback = void Function(
   Matrix4 matrix,
   Matrix4 translationDeltaMatrix,
   Matrix4 scaleDeltaMatrix,
   Matrix4 rotationDeltaMatrix,
 );
 
-class MatrixGestureDetector extends StatefulWidget {
-  final MatrixGestureDetectorCallback onMatrixUpdate;
+class CustomMatrixDetector extends StatefulWidget {
+  final CustomMatrixDetectorCallback onMatrixUpdate;
   final Widget child;
   final bool shouldTranslate;
   final bool shouldScale;
@@ -21,7 +21,7 @@ class MatrixGestureDetector extends StatefulWidget {
   final HitTestBehavior behavior;
   final Alignment? focalPointAlignment;
 
-  const MatrixGestureDetector({
+  const CustomMatrixDetector({
     Key? key,
     required this.onMatrixUpdate,
     required this.child,
@@ -34,7 +34,7 @@ class MatrixGestureDetector extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  MatrixGestureDetectorState createState() => MatrixGestureDetectorState();
+  CustomMatrixDetectorState createState() => CustomMatrixDetectorState();
 
   static Matrix4 compose(Matrix4? matrix, Matrix4? translationMatrix,
       Matrix4? scaleMatrix, Matrix4? rotationMatrix) {
@@ -55,7 +55,7 @@ class MatrixGestureDetector extends StatefulWidget {
   }
 }
 
-class MatrixGestureDetectorState extends State<MatrixGestureDetector> {
+class CustomMatrixDetectorState extends State<CustomMatrixDetector> {
   Matrix4 translationDeltaMatrix = Matrix4.identity();
   Matrix4 scaleDeltaMatrix = Matrix4.identity();
   Matrix4 rotationDeltaMatrix = Matrix4.identity();
